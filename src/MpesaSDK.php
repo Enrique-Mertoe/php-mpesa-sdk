@@ -51,36 +51,38 @@ class MpesaSDK
     private $transactionStatus;
     private $reversal;
 
-    public function __construct(array|Config $config = [], ?HttpClient $httpClient = null, ?Logger $logger = null)
+    public function __construct(array|Config $config = [], ?HttpClient $httpClient = null, ?Logger $logger = null, ?string $cacheDir = null)
     {
         $this->config = is_array($config) ? new Config($config) : $config;
         $this->httpClient = $httpClient ?: new HttpClient();
         $this->logger = $logger;
-        $this->tokenManager = new TokenManager($this->config, $this->httpClient, $this->logger);
+        
+        $fileCache = $cacheDir ? new \MpesaSDK\Cache\FileCache($cacheDir) : new \MpesaSDK\Cache\FileCache();
+        $this->tokenManager = new TokenManager($this->config, $this->httpClient, $this->logger, $fileCache);
     }
 
     /**
      * Create SDK instance from environment variables
      */
-    public static function fromEnv(?HttpClient $httpClient = null, ?Logger $logger = null): self
+    public static function fromEnv(?HttpClient $httpClient = null, ?Logger $logger = null, ?string $cacheDir = null): self
     {
-        return new self(Config::fromEnv(), $httpClient, $logger);
+        return new self(Config::fromEnv(), $httpClient, $logger, $cacheDir);
     }
 
     /**
      * Create sandbox instance
      */
-    public static function sandbox(array $config, ?HttpClient $httpClient = null, ?Logger $logger = null): self
+    public static function sandbox(array $config, ?HttpClient $httpClient = null, ?Logger $logger = null, ?string $cacheDir = null): self
     {
-        return new self(Config::sandbox($config), $httpClient, $logger);
+        return new self(Config::sandbox($config), $httpClient, $logger, $cacheDir);
     }
 
     /**
      * Create production instance
      */
-    public static function production(array $config, ?HttpClient $httpClient = null, ?Logger $logger = null): self
+    public static function production(array $config, ?HttpClient $httpClient = null, ?Logger $logger = null, ?string $cacheDir = null): self
     {
-        return new self(Config::production($config), $httpClient, $logger);
+        return new self(Config::production($config), $httpClient, $logger, $cacheDir);
     }
 
     /**

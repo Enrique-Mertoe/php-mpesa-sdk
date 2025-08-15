@@ -31,3 +31,21 @@
 [2025-08-15 23:48:13] info: STK Push response received {"status_code":500,"successful":false}
 [2025-08-15 23:48:13] error: STK Push request failed {"error_code":"500.003.02","error_message":"System is busy. Please try again in few minutes."}
 [2025-08-15 23:48:13] error: STK Push request exception {"error":"STK Push failed: System is busy. Please try again in few minutes."}
+[2025-08-16 00:46:42] info: Generating M-Pesa access token
+[2025-08-16 00:46:45] info: M-Pesa access token generated successfully {"expires_in":"3599"}
+[2025-08-16 00:46:45] info: STK Push request initiated {"phone_number":"254714356761","amount":10,"account_reference":"OrderNo123"}
+[2025-08-16 00:46:50] info: STK Push response received {"status_code":200,"successful":true}
+[2025-08-16 00:47:21] info: STK Push response received {"status_code":404,"successful":false}
+[2025-08-16 00:47:21] error: STK Push request failed {"error_code":"404.001.01","error_message":"Resource not found"}
+[2025-08-16 00:47:21] error: STK Push request exception {"error":"STK Push failed: Resource not found"}
+[2025-08-16 00:47:21] info: STK Push request initiated {"phone_number":"254712345678","amount":5,"account_reference":"QuickPay123"}
+[2025-08-16 00:47:26] info: STK Push response received {"status_code":200,"successful":true}
+[2025-08-16 00:56:34] info: Generating M-Pesa access token
+[2025-08-16 00:56:35] info: M-Pesa access token generated successfully {"expires_in":"3599"}
+[2025-08-16 00:56:35] info: STK Push request initiated {"phone_number":"254714356761","amount":10,"account_reference":"OrderNo123"}
+[2025-08-16 00:56:40] info: STK Push response received {"status_code":200,"successful":true}
+[2025-08-16 00:57:12] info: STK Push response received {"status_code":404,"successful":false}
+[2025-08-16 00:57:12] error: STK Push request failed {"error_code":"404.001.01","error_message":"Resource not found"}
+[2025-08-16 00:57:12] error: STK Push request exception {"error":"STK Push failed: Resource not found"}
+[2025-08-16 00:57:12] info: STK Push request initiated {"phone_number":"254712345678","amount":5,"account_reference":"QuickPay123"}
+[2025-08-16 00:57:17] info: STK Push response received {"status_code":200,"successful":true}

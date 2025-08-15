@@ -19,6 +19,7 @@ use MpesaSDK\Config\Config;
 use MpesaSDK\Http\HttpClient;
 use MpesaSDK\Exceptions\AuthException;
 use MpesaSDK\Utils\Logger;
+use MpesaSDK\Cache\FileCache;
 
 class TokenManager
 {
@@ -27,14 +28,17 @@ class TokenManager
     private $logger;
     private $tokenCache;
     private $cacheExpiry;
+    private $fileCache;
+    private $cacheKey;
 
-    public function __construct(Config $config, ?HttpClient $httpClient = null, ?Logger $logger = null)
+    public function __construct(Config $config, ?HttpClient $httpClient = null, ?Logger $logger = null, ?FileCache $fileCache = null)
     {
         $this->config = $config;
         $this->httpClient = $httpClient ?: new HttpClient();
         $this->logger = $logger;
-        $this->tokenCache = null;
-        $this->cacheExpiry = 0;
+        $this->fileCache = $fileCache ?: new FileCache();
+        $this->cacheKey = 'mpesa_token_' . md5($config->getConsumerKey() . $config->getEnvironment());
+        $this->loadFromCache();
     }
 
     /**
@@ -89,6 +93,7 @@ class TokenManager
             // Cache the token with expiry (subtract 60 seconds for safety margin)
             $this->tokenCache = $token;
             $this->cacheExpiry = time() + $expiresIn - 60;
+            $this->saveToCache($token, $expiresIn - 60);
 
             if ($this->logger) {
                 $this->logger->info('M-Pesa access token generated successfully', [
@@ -132,6 +137,37 @@ class TokenManager
     {
         $this->tokenCache = null;
         $this->cacheExpiry = 0;
+        $this->fileCache->delete($this->cacheKey);
+    }
+
+    /**
+     * Load token from file cache
+     */
+    private function loadFromCache(): void
+    {
+        $cached = $this->fileCache->get($this->cacheKey);
+        
+        if ($cached) {
+            $this->tokenCache = $cached['token'];
+            $this->cacheExpiry = $cached['expires_at'];
+            
+            if ($this->logger) {
+                $this->logger->info('M-Pesa token loaded from cache', [
+                    'expires_at' => date('Y-m-d H:i:s', $this->cacheExpiry)
+                ]);
+            }
+        }
+    }
+
+    /**
+     * Save token to file cache
+     */
+    private function saveToCache(string $token, int $ttl): void
+    {
+        $this->fileCache->set($this->cacheKey, [
+            'token' => $token,
+            'expires_at' => $this->cacheExpiry
+        ], $ttl);
     }
 
     /**

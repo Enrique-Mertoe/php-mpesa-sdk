@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * M-Pesa SDK Validation Utility
+ * 
+ * Provides validation methods for M-Pesa API parameters including
+ * phone numbers, amounts, URLs, and other transaction data.
+ * 
+ * @package MpesaSDK\Utils
+ * @author Abuti Martin <abutimartin778@gmail.com>
+ * @version 1.0.0
+ * @license MIT
+ * @since 1.0.0
+ */
+
 namespace MpesaSDK\Utils;
 
 use MpesaSDK\Exceptions\ValidationException;

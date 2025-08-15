@@ -1,9 +1,16 @@
 <?php
 
 /**
- * SDK Integration Example
- *
- * This shows how to integrate the callback handling directly into the main SDK
+ * M-Pesa SDK Integration Example
+ * 
+ * Demonstrates how to integrate M-Pesa callback handling directly into the main SDK.
+ * Shows database integration and transaction processing patterns.
+ * 
+ * @package MpesaSDK\Examples
+ * @author Abuti Martin <abutimartin778@gmail.com>
+ * @version 1.0.0
+ * @license MIT
+ * @since 1.0.0
  */
 
 require_once __DIR__ . '/../vendor/autoload.php';

@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * M-Pesa SDK Token Manager
+ * 
+ * Manages OAuth access tokens for M-Pesa API authentication.
+ * Handles token generation, caching, and expiry management.
+ * 
+ * @package MpesaSDK\Auth
+ * @author Abuti Martin <abutimartin778@gmail.com>
+ * @version 1.0.0
+ * @license MIT
+ * @since 1.0.0
+ */
+
 namespace MpesaSDK\Auth;
 
 use MpesaSDK\Config\Config;

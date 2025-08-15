@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * M-Pesa SDK STK Push Callback Example
+ * 
+ * Basic example of handling STK Push callbacks using the M-Pesa SDK.
+ * Shows validation, parsing, and response handling.
+ * 
+ * @package MpesaSDK\Examples\Callbacks
+ * @author Abuti Martin <abutimartin778@gmail.com>
+ * @version 1.0.0
+ * @license MIT
+ * @since 1.0.0
+ */
+
 require_once __DIR__ . '/../../vendor/autoload.php';
 
 use MpesaSDK\Services\STKPush;

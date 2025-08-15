@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * M-Pesa STK Push Service
+ * 
+ * Handles STK Push (Lipa Na M-Pesa Online) transactions.
+ * Provides methods for initiating payments and querying transaction status.
+ * 
+ * @package MpesaSDK\Services
+ * @author Abuti Martin <abutimartin778@gmail.com>
+ * @version 1.0.0
+ * @license MIT
+ * @since 1.0.0
+ */
+
 namespace MpesaSDK\Services;
 
 use MpesaSDK\Config\Config;

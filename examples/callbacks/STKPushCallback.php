@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * M-Pesa SDK STK Push Callback Handler
+ * 
+ * Handles STK Push (Lipa Na M-Pesa Online) callback processing.
+ * Provides validation, parsing, and event handling for payment callbacks.
+ * 
+ * @package MpesaSDK\Callbacks
+ * @author Abuti Martin <abutimartin778@gmail.com>
+ * @version 1.0.0
+ * @license MIT
+ * @since 1.0.0
+ */
+
 namespace MpesaSDK\Callbacks;
 
 use MpesaSDK\Utils\Validator;

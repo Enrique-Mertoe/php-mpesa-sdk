@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * M-Pesa SDK Configuration Class
+ * 
+ * Handles configuration management for M-Pesa API integration including
+ * environment settings, credentials, and endpoint URLs.
+ * 
+ * @package MpesaSDK\Config
+ * @author Abuti Martin <abutimartin778@gmail.com>
+ * @version 1.0.0
+ * @license MIT
+ * @since 1.0.0
+ */
+
 namespace MpesaSDK\Config;
 
 use MpesaSDK\Exceptions\MpesaException;

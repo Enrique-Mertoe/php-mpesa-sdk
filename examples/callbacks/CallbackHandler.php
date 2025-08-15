@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * M-Pesa SDK Callback Handler Base Class
+ * 
+ * Abstract base class for handling M-Pesa API callbacks.
+ * Provides common functionality for processing callback data.
+ * 
+ * @package MpesaSDK\Callbacks
+ * @author Abuti Martin <abutimartin778@gmail.com>
+ * @version 1.0.0
+ * @license MIT
+ * @since 1.0.0
+ */
+
 namespace MpesaSDK\Callbacks;
 
 use MpesaSDK\Utils\Logger;

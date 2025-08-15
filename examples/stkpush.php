@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * M-Pesa SDK STK Push Example
+ * 
+ * Demonstrates how to use the M-Pesa SDK for STK Push (Lipa Na M-Pesa Online) transactions.
+ * Shows both basic and advanced usage patterns including status checking.
+ * 
+ * @package MpesaSDK\Examples
+ * @author Abuti Martin <abutimartin778@gmail.com>
+ * @version 1.0.0
+ * @license MIT
+ * @since 1.0.0
+ */
+
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use MpesaSDK\MpesaSDK;

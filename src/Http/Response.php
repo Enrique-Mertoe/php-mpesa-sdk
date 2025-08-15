@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * M-Pesa SDK HTTP Response Handler
+ * 
+ * Handles HTTP responses from M-Pesa API endpoints.
+ * Provides methods for parsing and validating response data.
+ * 
+ * @package MpesaSDK\Http
+ * @author Abuti Martin <abutimartin778@gmail.com>
+ * @version 1.0.0
+ * @license MIT
+ * @since 1.0.0
+ */
+
 namespace MpesaSDK\Http;
 
 use MpesaSDK\Exceptions\HttpException;

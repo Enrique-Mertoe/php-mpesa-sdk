@@ -1,10 +1,16 @@
 <?php
 
 /**
- * Standalone M-Pesa STK Push Callback Handler
- *
- * This script can be used as a direct replacement for your Flask route.
- * Place this file on your server and set it as your callback URL.
+ * M-Pesa SDK Standalone Callback Handler
+ * 
+ * Standalone STK Push callback handler that can be used as a direct replacement
+ * for Flask routes. Place this file on your server and set it as your callback URL.
+ * 
+ * @package MpesaSDK\Examples\Callbacks
+ * @author Abuti Martin <abutimartin778@gmail.com>
+ * @version 1.0.0
+ * @license MIT
+ * @since 1.0.0
  */
 
 require_once __DIR__ . '/../vendor/autoload.php';

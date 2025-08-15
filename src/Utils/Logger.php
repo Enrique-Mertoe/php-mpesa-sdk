@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * M-Pesa SDK Logger Utility
+ * 
+ * Provides logging functionality for the M-Pesa SDK.
+ * Supports multiple log levels and output destinations.
+ * 
+ * @package MpesaSDK\Utils
+ * @author Abuti Martin <abutimartin778@gmail.com>
+ * @version 1.0.0
+ * @license MIT
+ * @since 1.0.0
+ */
+
 namespace MpesaSDK\Utils;
 
 class Logger

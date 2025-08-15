@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * M-Pesa SDK HTTP Client
+ * 
+ * Handles HTTP requests to M-Pesa API endpoints.
+ * Provides methods for GET, POST, and PUT requests with proper error handling.
+ * 
+ * @package MpesaSDK\Http
+ * @author Abuti Martin <abutimartin778@gmail.com>
+ * @version 1.0.0
+ * @license MIT
+ * @since 1.0.0
+ */
+
 namespace MpesaSDK\Http;
 
 use MpesaSDK\Exceptions\HttpException;

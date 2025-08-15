@@ -1,5 +1,19 @@
 <?php
 
+/**
+ * M-Pesa SDK for PHP
+ * 
+ * A comprehensive PHP SDK for integrating with Safaricom's M-Pesa API.
+ * Supports STK Push, B2C, B2B, C2B, Account Balance, Transaction Status, and Reversal services.
+ * 
+ * @package MpesaSDK
+ * @author Abuti Martin <abutimartin778@gmail.com>
+ * @version 1.0.0
+ * @license MIT
+ * @link https://github.com/abutimartin/mpesa-sdk
+ * @since 1.0.0
+ */
+
 namespace MpesaSDK;
 
 use MpesaSDK\Config\Config;

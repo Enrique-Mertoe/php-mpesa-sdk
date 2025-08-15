@@ -1,9 +1,16 @@
 <?php
 
 /**
- * Custom API Manager - Direct equivalent of your Flask ApiManager
- *
- * This class replicates your Flask application's logic exactly
+ * M-Pesa Custom API Manager Example
+ * 
+ * Custom API Manager that replicates Flask application logic.
+ * Provides direct equivalent functionality for callback processing.
+ * 
+ * @package MpesaSDK\Examples
+ * @author Abuti Martin <abutimartin778@gmail.com>
+ * @version 1.0.0
+ * @license MIT
+ * @since 1.0.0
  */
 
 require_once __DIR__ . '/../vendor/autoload.php';

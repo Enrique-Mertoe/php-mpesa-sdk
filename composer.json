@@ -1,12 +1,20 @@
 {
-  "name": "your-namespace/mpesa-sdk",
+  "name": "abutimartin/mpesa-sdk",
   "description": "Comprehensive PHP SDK for Safaricom M-Pesa API integration",
   "type": "library",
   "license": "MIT",
+  "homepage": "https://github.com/Enrique-Mertoe/php-mpesa-sdk",
+  "support": {
+    "issues": "https://github.com/Enrique-Mertoe/php-mpesa-sdk/issues",
+    "source": "https://github.com/Enrique-Mertoe/php-mpesa-sdk",
+    "email": "abutimartin778@gmail.com"
+  },
   "authors": [
     {
-      "name": "Your Name",
-      "email": "your.email@example.com"
+      "name": "Abuti Martin",
+      "email": "abutimartin778@gmail.com",
+      "homepage": "https://github.com/abutimartin",
+      "role": "Developer"
     }
   ],
   "keywords": [
@@ -15,7 +23,14 @@
     "stkpush",
     "mobile-payments",
     "kenya",
-    "daraja-api"
+    "daraja-api",
+    "b2c",
+    "b2b",
+    "c2b",
+    "laravel",
+    "php",
+    "payment-gateway",
+    "api-client"
   ],
   "require": {
     "php": ">=8.0",
@@ -27,9 +42,23 @@
     "phpunit/phpunit": "^9.0",
     "mockery/mockery": "^1.4"
   },
+  "suggest": {
+    "illuminate/support": "Required for Laravel integration (^8.0|^9.0|^10.0)",
+    "monolog/monolog": "For advanced logging capabilities"
+  },
   "autoload": {
     "psr-4": {
       "MpesaSDK\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "MpesaSDK\\Laravel\\MpesaServiceProvider"
+      ],
+      "aliases": {
+        "Mpesa": "MpesaSDK\\Laravel\\MpesaFacade"
+      }
     }
   },
   "autoload-dev": {

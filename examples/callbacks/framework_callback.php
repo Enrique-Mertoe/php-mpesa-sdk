@@ -1,9 +1,16 @@
 <?php
 
 /**
- * Framework Integration Examples
- *
- * This file shows how to integrate the callback handler with different PHP frameworks
+ * M-Pesa SDK Framework Integration Examples
+ * 
+ * Demonstrates how to integrate M-Pesa callback handlers with popular PHP frameworks
+ * including Laravel, CodeIgniter, Symfony, and Slim Framework.
+ * 
+ * @package MpesaSDK\Examples\Callbacks
+ * @author Abuti Martin <abutimartin778@gmail.com>
+ * @version 1.0.0
+ * @license MIT
+ * @since 1.0.0
  */
 
 // ================================

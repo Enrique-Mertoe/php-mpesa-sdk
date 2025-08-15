@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * M-Pesa B2C (Business to Customer) Service
+ * 
+ * Handles Business to Customer transactions including salary payments,
+ * business payments, and promotion payments.
+ * 
+ * @package MpesaSDK\Services
+ * @author Abuti Martin <abutimartin778@gmail.com>
+ * @version 1.0.0
+ * @license MIT
+ * @since 1.0.0
+ */
+
 namespace MpesaSDK\Services;
 
 use MpesaSDK\Config\Config;

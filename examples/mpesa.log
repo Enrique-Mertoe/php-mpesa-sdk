@@ -49,3 +49,19 @@
 [2025-08-16 00:57:12] error: STK Push request exception {"error":"STK Push failed: Resource not found"}
 [2025-08-16 00:57:12] info: STK Push request initiated {"phone_number":"254712345678","amount":5,"account_reference":"QuickPay123"}
 [2025-08-16 00:57:17] info: STK Push response received {"status_code":200,"successful":true}
+[2025-08-16 01:08:19] info: M-Pesa token loaded from cache {"expires_at":"2025-08-16 01:55:34"}
+[2025-08-16 01:08:19] info: STK Push request initiated {"phone_number":"254714356761","amount":10,"account_reference":"OrderNo123"}
+[2025-08-16 01:08:23] info: STK Push response received {"status_code":200,"successful":true}
+[2025-08-16 01:08:54] info: STK Push response received {"status_code":404,"successful":false}
+[2025-08-16 01:08:54] error: STK Push request failed {"error_code":"404.001.01","error_message":"Resource not found"}
+[2025-08-16 01:08:54] error: STK Push request exception {"error":"STK Push failed: Resource not found"}
+[2025-08-16 01:08:54] info: STK Push request initiated {"phone_number":"254712345678","amount":5,"account_reference":"QuickPay123"}
+[2025-08-16 01:08:59] info: STK Push response received {"status_code":200,"successful":true}
+[2025-08-16 01:11:58] info: M-Pesa token loaded from cache {"expires_at":"2025-08-16 01:55:34"}
+[2025-08-16 01:11:58] info: STK Push request initiated {"phone_number":"254714356761","amount":10,"account_reference":"OrderNo123"}
+[2025-08-16 01:12:03] info: STK Push response received {"status_code":200,"successful":true}
+[2025-08-16 01:12:40] info: STK Push response received {"status_code":404,"successful":false}
+[2025-08-16 01:12:40] error: STK Push request failed {"error_code":"404.001.01","error_message":"Resource not found"}
+[2025-08-16 01:12:40] error: STK Push request exception {"error":"STK Push failed: Resource not found"}
+[2025-08-16 01:12:40] info: STK Push request initiated {"phone_number":"254712345678","amount":5,"account_reference":"QuickPay123"}
+[2025-08-16 01:12:44] info: STK Push response received {"status_code":200,"successful":true}

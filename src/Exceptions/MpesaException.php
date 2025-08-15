@@ -62,10 +62,10 @@ class MpesaException extends Exception
 }
 
 // Specific exception classes
-class AuthException extends MpesaException {}
 
-class ValidationException extends MpesaException {}
 
-class HttpException extends MpesaException {}
+
+
+
 
 class ConfigException extends MpesaException {}

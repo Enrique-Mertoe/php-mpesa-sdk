@@ -2,8 +2,12 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PHP Version](https://img.shields.io/badge/PHP-%3E%3D8.0-blue.svg)](https://php.net)
+[![Packagist](https://img.shields.io/packagist/v/abutimartin/mpesa-sdk.svg)](https://packagist.org/packages/abutimartin/mpesa-sdk)
+[![Downloads](https://img.shields.io/packagist/dt/abutimartin/mpesa-sdk.svg)](https://packagist.org/packages/abutimartin/mpesa-sdk)
 
 A comprehensive PHP SDK for integrating with Safaricom's M-Pesa API. This SDK provides a clean, modern interface for all M-Pesa services including STK Push, B2C, B2B, C2B, Account Balance, Transaction Status, and Reversal operations.
+
+**Works with both standalone PHP projects and Laravel applications.**
 
 ## Features
 
@@ -30,21 +34,21 @@ A comprehensive PHP SDK for integrating with Safaricom's M-Pesa API. This SDK pr
 
 ## Installation
 
-Install via Composer:
+### For All PHP Projects
 
 ```bash
 composer require abutimartin/mpesa-sdk
 ```
 
-### Laravel Integration
+### Laravel Setup (Additional Steps)
 
-For Laravel applications, the service provider will be automatically registered. Publish the configuration:
+The service provider auto-registers in Laravel 5.5+. Publish the config:
 
 ```bash
 php artisan vendor:publish --tag=mpesa-config
 ```
 
-Add to your `.env` file:
+Add to your `.env`:
 
 ```env
 MPESA_ENVIRONMENT=sandbox
@@ -58,7 +62,7 @@ MPESA_SECURITY_CREDENTIAL=your_security_credential
 
 ## Quick Start
 
-### Basic STK Push Example
+### 🔥 Standalone PHP Usage
 
 ```php
 <?php
@@ -67,7 +71,7 @@ require_once 'vendor/autoload.php';
 
 use MpesaSDK\MpesaSDK;
 
-// Initialize SDK for sandbox
+// Initialize SDK
 $mpesa = MpesaSDK::sandbox([
     'consumer_key' => 'your_consumer_key',
     'consumer_secret' => 'your_consumer_secret',
@@ -75,7 +79,7 @@ $mpesa = MpesaSDK::sandbox([
     'passkey' => 'your_passkey'
 ]);
 
-// Initiate STK Push
+// STK Push
 $response = $mpesa->stkPush()->push(
     phoneNumber: '254712345678',
     amount: 100.00,
@@ -86,35 +90,46 @@ $response = $mpesa->stkPush()->push(
 
 if ($response->isSuccessful()) {
     echo "Payment initiated! Checkout ID: " . $response->get('CheckoutRequestID');
-} else {
-    echo "Error: " . $response->getErrorMessage();
 }
 ```
 
-### Environment Configuration
-
-#### Using Environment Variables
-
-Create a `.env` file:
-
-```env
-MPESA_ENVIRONMENT=sandbox
-MPESA_CONSUMER_KEY=your_consumer_key
-MPESA_CONSUMER_SECRET=your_consumer_secret
-MPESA_BUSINESS_SHORT_CODE=174379
-MPESA_PASSKEY=your_passkey
-MPESA_INITIATOR_NAME=your_initiator
-MPESA_SECURITY_CREDENTIAL=your_security_credential
-```
-
-Then initialize:
+### 🚀 Laravel Usage
 
 ```php
-$mpesa = MpesaSDK::fromEnv();
+<?php
+
+// Using Dependency Injection
+class PaymentController extends Controller
+{
+    public function pay(Request $request, MpesaSDK $mpesa)
+    {
+        $response = $mpesa->stkPush()->push(
+            phoneNumber: $request->phone,
+            amount: $request->amount,
+            accountReference: 'ORDER123',
+            transactionDescription: 'Payment',
+            callbackUrl: route('mpesa.callback')
+        );
+        
+        return response()->json($response->getData());
+    }
+}
+
+// Using Facade
+use MpesaSDK\Laravel\MpesaFacade as Mpesa;
+
+$response = Mpesa::requestPayment(
+    phoneNumber: '254712345678',
+    amount: 100.00,
+    callbackUrl: route('mpesa.callback')
+);
 ```
 
-#### Direct Configuration
+## Configuration
 
+### 🔧 Standalone PHP Configuration
+
+#### Option 1: Direct Configuration
 ```php
 // Sandbox
 $mpesa = MpesaSDK::sandbox([
@@ -135,55 +150,58 @@ $mpesa = MpesaSDK::production([
 ]);
 ```
 
-## Services
+#### Option 2: Environment Variables
+Create `.env` file:
+```env
+MPESA_ENVIRONMENT=sandbox
+MPESA_CONSUMER_KEY=your_consumer_key
+MPESA_CONSUMER_SECRET=your_consumer_secret
+MPESA_BUSINESS_SHORT_CODE=174379
+MPESA_PASSKEY=your_passkey
+```
 
-### STK Push (Lipa Na M-Pesa Online)
+Then:
+```php
+$mpesa = MpesaSDK::fromEnv();
+```
+
+### ⚙️ Laravel Configuration
+
+Laravel automatically loads from `config/mpesa.php` and `.env`:
 
 ```php
-// Basic STK Push
-$response = $mpesa->stkPush()->push(
-    phoneNumber: '254712345678',
-    amount: 100.00,
-    accountReference: 'ORDER123',
-    transactionDescription: 'Payment',
-    callbackUrl: 'https://yourapp.com/callback'
-);
+// Automatic via Service Container
+public function __construct(MpesaSDK $mpesa) {
+    $this->mpesa = $mpesa;
+}
 
-// Quick STK Push (minimal parameters)
-$response = $mpesa->requestPayment(
-    phoneNumber: '254712345678',
-    amount: 100.00,
-    callbackUrl: 'https://yourapp.com/callback'
-);
+// Or via Facade
+Mpesa::stkPush()->push(...);
+```
 
-// Query STK Push Status
+### 🔍 Query Transaction Status
+
+#### Standalone PHP
+```php
+// STK Push Status
 $statusResponse = $mpesa->stkPush()->queryStatus($checkoutRequestId);
+
+// General Transaction Status
+$response = $mpesa->transactionStatus()->query(
+    transactionId: 'LHG31AA5TX',
+    queueTimeoutUrl: 'https://yourapp.com/timeout',
+    resultUrl: 'https://yourapp.com/result'
+);
 ```
 
-### B2C (Business to Customer)
-
+#### Laravel
 ```php
-// Send money to customer
-$response = $mpesa->b2c()->send(
-    phoneNumber: '254712345678',
-    amount: 100.00,
-    commandId: 'BusinessPayment',
-    remarks: 'Salary payment',
-    queueTimeoutUrl: 'https://yourapp.com/timeout',
-    resultUrl: 'https://yourapp.com/result'
-);
-
-// Quick send money
-$response = $mpesa->sendMoney(
-    phoneNumber: '254712345678',
-    amount: 100.00,
-    remarks: 'Payment',
-    queueTimeoutUrl: 'https://yourapp.com/timeout',
-    resultUrl: 'https://yourapp.com/result'
-);
+// In Controller
+$status = $mpesa->stkPush()->queryStatus($request->checkout_id);
+return response()->json($status->getData());
 ```
 
-### Account Balance
+### 📊 Account Balance
 
 ```php
 $response = $mpesa->accountBalance()->query(
@@ -192,19 +210,9 @@ $response = $mpesa->accountBalance()->query(
 );
 ```
 
-### Transaction Status
+## 🔄 Callback Handling
 
-```php
-$response = $mpesa->transactionStatus()->query(
-    transactionId: 'LHG31AA5TX',
-    queueTimeoutUrl: 'https://yourapp.com/timeout',
-    resultUrl: 'https://yourapp.com/result'
-);
-```
-
-## Callback Handling
-
-### Simple Callback Handler
+### Standalone PHP Callback
 
 ```php
 <?php
@@ -217,60 +225,37 @@ use MpesaSDK\Utils\Logger;
 $logger = new Logger(Logger::LEVEL_INFO, 'mpesa.log');
 $callback = new STKPushCallback($logger);
 
-// Set success handler
 $callback->onSuccess(function($data) {
     // Store successful transaction
-    echo "Payment successful: " . $data['mpesa_receipt_number'];
+    file_put_contents('transactions.log', 
+        "SUCCESS: {$data['mpesa_receipt_number']} - {$data['amount']}\n", 
+        FILE_APPEND
+    );
 });
 
-// Set failure handler
 $callback->onFailure(function($data) {
     // Handle failed transaction
-    echo "Payment failed: " . $data['result_desc'];
+    file_put_contents('transactions.log', 
+        "FAILED: {$data['result_desc']}\n", 
+        FILE_APPEND
+    );
 });
 
-// Process callback
 $response = $callback->process();
-
 header('Content-Type: application/json');
 echo json_encode($response);
 ```
 
-### Framework Integration
-
-#### Laravel
+### Laravel Callback
 
 ```php
-// Using dependency injection
-use MpesaSDK\MpesaSDK;
+<?php
 
-class PaymentController extends Controller
+use MpesaSDK\Callbacks\STKPushCallback;
+use App\Models\Transaction;
+
+class MpesaController extends Controller
 {
-    public function initiatePayment(Request $request, MpesaSDK $mpesa)
-    {
-        $response = $mpesa->stkPush()->push(
-            phoneNumber: $request->phone,
-            amount: $request->amount,
-            accountReference: $request->reference,
-            transactionDescription: 'Payment',
-            callbackUrl: route('mpesa.callback')
-        );
-        
-        return response()->json($response->getData());
-    }
-    
-    // Using facade
-    public function quickPayment(Request $request)
-    {
-        $response = \Mpesa::requestPayment(
-            phoneNumber: $request->phone,
-            amount: $request->amount,
-            callbackUrl: route('mpesa.callback')
-        );
-        
-        return response()->json($response->getData());
-    }
-    
     public function handleCallback(Request $request)
     {
         $callback = new STKPushCallback();
@@ -280,14 +265,98 @@ class PaymentController extends Controller
                 'checkout_request_id' => $data['checkout_request_id'],
                 'mpesa_receipt_number' => $data['mpesa_receipt_number'],
                 'amount' => $data['amount'],
+                'phone_number' => $data['phone_number'],
                 'status' => 'completed'
             ]);
+            
+            \Log::info('Payment successful', $data);
+        });
+        
+        $callback->onFailure(function($data) {
+            Transaction::create([
+                'checkout_request_id' => $data['checkout_request_id'],
+                'status' => 'failed',
+                'failure_reason' => $data['result_desc']
+            ]);
+            
+            \Log::warning('Payment failed', $data);
         });
         
         $response = $callback->process();
         return response()->json($response);
     }
 }
+```
+
+## Usage Examples
+
+### 📱 STK Push (Lipa Na M-Pesa)
+
+#### Standalone PHP
+```php
+$response = $mpesa->stkPush()->push(
+    phoneNumber: '254712345678',
+    amount: 100.00,
+    accountReference: 'ORDER123',
+    transactionDescription: 'Payment',
+    callbackUrl: 'https://yourapp.com/callback'
+);
+
+// Quick method
+$response = $mpesa->requestPayment(
+    phoneNumber: '254712345678',
+    amount: 100.00,
+    callbackUrl: 'https://yourapp.com/callback'
+);
+```
+
+#### Laravel
+```php
+// Controller method
+public function initiatePayment(Request $request, MpesaSDK $mpesa)
+{
+    $response = $mpesa->stkPush()->push(
+        phoneNumber: $request->phone,
+        amount: $request->amount,
+        accountReference: $request->reference,
+        transactionDescription: 'Payment',
+        callbackUrl: route('mpesa.callback')
+    );
+    
+    return response()->json($response->getData());
+}
+
+// Using Facade
+$response = Mpesa::requestPayment(
+    phoneNumber: $request->phone,
+    amount: $request->amount,
+    callbackUrl: route('mpesa.callback')
+);
+```
+
+### 💰 B2C (Send Money)
+
+#### Standalone PHP
+```php
+$response = $mpesa->b2c()->send(
+    phoneNumber: '254712345678',
+    amount: 100.00,
+    commandId: 'BusinessPayment',
+    remarks: 'Salary payment',
+    queueTimeoutUrl: 'https://yourapp.com/timeout',
+    resultUrl: 'https://yourapp.com/result'
+);
+```
+
+#### Laravel
+```php
+$response = $mpesa->sendMoney(
+    phoneNumber: $request->phone,
+    amount: $request->amount,
+    remarks: 'Payment',
+    queueTimeoutUrl: route('mpesa.timeout'),
+    resultUrl: route('mpesa.result')
+);
 ```
 
 ## Logging

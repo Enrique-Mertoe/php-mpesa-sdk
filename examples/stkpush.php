@@ -13,7 +13,6 @@
  * @since 1.0.0
  */
 require_once __DIR__ . '/../vendor/autoload.php';
-
 use MpesaSDK\MpesaSDK;
 use MpesaSDK\Utils\Logger;
 use MpesaSDK\Exceptions\MpesaException;

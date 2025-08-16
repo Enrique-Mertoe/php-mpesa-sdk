@@ -38,7 +38,7 @@ echo "Connected to M-Pesa " . $mpesa->getEnvironment()['environment'] . " enviro
 try {
     // STK Push request
     $response = $mpesa->stkPush()->push(
-        phoneNumber: '2540115306792',
+        phoneNumber: '254714356761',
         amount: 10.00,
         accountReference: 'OrderNo123',
         transactionDescription: 'Payment',

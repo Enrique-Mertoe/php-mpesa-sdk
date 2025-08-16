@@ -46,9 +46,9 @@ class Validator
         }
 
         // Validate Kenyan mobile number prefixes
-        $validPrefixes = ['2547', '2541','25401','25407'];
+        $validPrefixes = ['2547', '2541'];
 
-        $prefix = substr($cleaned, 0, 5);
+        $prefix = substr($cleaned, 0, 4);
         if (!in_array($prefix, $validPrefixes)) {
             throw new ValidationException("Invalid Kenyan mobile number prefix $prefix");
         }

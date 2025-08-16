@@ -65,3 +65,150 @@
 [2025-08-16 01:12:40] error: STK Push request exception {"error":"STK Push failed: Resource not found"}
 [2025-08-16 01:12:40] info: STK Push request initiated {"phone_number":"254712345678","amount":5,"account_reference":"QuickPay123"}
 [2025-08-16 01:12:44] info: STK Push response received {"status_code":200,"successful":true}
+[2025-08-16 09:05:56] info: Generating M-Pesa access token
+[2025-08-16 09:05:56] error: Failed to generate M-Pesa access token {"error":"cURL error (6): Couldn't resolve host 'sandbox.safaricom.co.ke'"}
+[2025-08-16 09:05:56] error: Connection test failed {"error":"Failed to generate access token: cURL error (6): Couldn't resolve host 'sandbox.safaricom.co.ke'"}
+[2025-08-16 09:06:07] info: Generating M-Pesa access token
+[2025-08-16 09:06:07] error: Failed to generate M-Pesa access token {"error":"cURL error (6): Couldn't resolve host 'sandbox.safaricom.co.ke'"}
+[2025-08-16 09:06:07] error: Connection test failed {"error":"Failed to generate access token: cURL error (6): Couldn't resolve host 'sandbox.safaricom.co.ke'"}
+[2025-08-16 09:06:54] info: Generating M-Pesa access token
+[2025-08-16 09:06:54] error: Failed to generate M-Pesa access token {"error":"cURL error (6): Couldn't resolve host 'sandbox.safaricom.co.ke'"}
+[2025-08-16 09:06:54] error: Connection test failed {"error":"Failed to generate access token: cURL error (6): Couldn't resolve host 'sandbox.safaricom.co.ke'"}
+[2025-08-16 09:10:51] info: Generating M-Pesa access token
+[2025-08-16 09:10:52] info: M-Pesa access token generated successfully {"expires_in":"3599"}
+[2025-08-16 09:10:52] info: STK Push request initiated {"phone_number":"254714356761","amount":10,"account_reference":"OrderNo123"}
+[2025-08-16 09:10:54] info: STK Push response received {"status_code":200,"successful":true}
+[2025-08-16 09:11:24] info: STK Push response received {"status_code":404,"successful":false}
+[2025-08-16 09:11:24] error: STK Push request failed {"error_code":"404.001.01","error_message":"Resource not found"}
+[2025-08-16 09:11:24] error: STK Push request exception {"error":"STK Push failed: Resource not found"}
+[2025-08-16 09:11:24] info: STK Push request initiated {"phone_number":"254712345678","amount":5,"account_reference":"QuickPay123"}
+[2025-08-16 09:11:25] info: STK Push response received {"status_code":200,"successful":true}
+[2025-08-16 09:11:34] info: M-Pesa token loaded from cache {"expires_at":"2025-08-16 10:09:51"}
+[2025-08-16 09:11:34] info: STK Push request initiated {"phone_number":"254712345678","amount":5,"account_reference":"QuickPay123"}
+[2025-08-16 09:11:34] info: STK Push response received {"status_code":200,"successful":true}
+[2025-08-16 09:11:47] info: M-Pesa token loaded from cache {"expires_at":"2025-08-16 10:09:51"}
+[2025-08-16 09:11:47] info: STK Push request initiated {"phone_number":"254712345678","amount":5,"account_reference":"QuickPay123"}
+[2025-08-16 09:11:48] info: STK Push response received {"status_code":200,"successful":true}
+[2025-08-16 09:12:08] info: M-Pesa token loaded from cache {"expires_at":"2025-08-16 10:09:51"}
+[2025-08-16 09:12:08] info: STK Push request initiated {"phone_number":"254712345678","amount":5,"account_reference":"QuickPay123"}
+[2025-08-16 09:12:09] info: STK Push response received {"status_code":200,"successful":true}
+[2025-08-16 09:13:36] info: M-Pesa token loaded from cache {"expires_at":"2025-08-16 10:09:51"}
+[2025-08-16 09:13:36] info: STK Push request initiated {"phone_number":"254712345678","amount":5,"account_reference":"QuickPay123"}
+[2025-08-16 09:13:37] info: STK Push response received {"status_code":200,"successful":true}
+[2025-08-16 09:14:52] info: M-Pesa token loaded from cache {"expires_at":"2025-08-16 10:09:51"}
+[2025-08-16 09:15:52] info: M-Pesa token loaded from cache {"expires_at":"2025-08-16 10:09:51"}
+[2025-08-16 09:16:19] info: M-Pesa token loaded from cache {"expires_at":"2025-08-16 10:09:51"}
+[2025-08-16 09:16:28] info: M-Pesa token loaded from cache {"expires_at":"2025-08-16 10:09:51"}
+[2025-08-16 09:16:55] info: M-Pesa token loaded from cache {"expires_at":"2025-08-16 10:09:51"}
+[2025-08-16 09:16:55] info: STK Push request initiated {"phone_number":"254115306792","amount":5,"account_reference":"QuickPay123"}
+[2025-08-16 09:16:56] info: STK Push response received {"status_code":200,"successful":true}
+[2025-08-16 09:17:55] info: M-Pesa token loaded from cache {"expires_at":"2025-08-16 10:09:51"}
+[2025-08-16 09:17:55] info: STK Push request initiated {"phone_number":"254115306792","amount":5,"account_reference":"QuickPay123"}
+[2025-08-16 09:17:58] info: STK Push response received {"status_code":200,"successful":true}
+[2025-08-16 09:20:05] info: M-Pesa token loaded from cache {"expires_at":"2025-08-16 10:09:51"}
+[2025-08-16 09:20:05] info: STK Push request initiated {"phone_number":"254115306792","amount":5,"account_reference":"QuickPay123"}
+[2025-08-16 09:20:06] info: STK Push response received {"status_code":200,"successful":true}
+[2025-08-16 09:22:35] info: M-Pesa token loaded from cache {"expires_at":"2025-08-16 10:09:51"}
+[2025-08-16 09:22:35] info: STK Push request initiated {"phone_number":"254115306792","amount":5,"account_reference":"QuickPay123"}
+[2025-08-16 09:22:36] info: STK Push response received {"status_code":200,"successful":true}
+[2025-08-16 09:25:47] info: M-Pesa token loaded from cache {"expires_at":"2025-08-16 10:09:51"}
+[2025-08-16 09:25:47] info: STK Push request initiated {"phone_number":"254115306792","amount":10,"account_reference":"OrderNo123"}
+[2025-08-16 09:25:49] info: STK Push response received {"status_code":200,"successful":true}
+[2025-08-16 09:26:20] info: STK Push response received {"status_code":404,"successful":false}
+[2025-08-16 09:26:20] error: STK Push request failed {"error_code":"404.001.01","error_message":"Resource not found"}
+[2025-08-16 09:26:20] error: STK Push request exception {"error":"STK Push failed: Resource not found"}
+[2025-08-16 09:26:20] info: STK Push request initiated {"phone_number":"254115306792","amount":5,"account_reference":"QuickPay123"}
+[2025-08-16 09:26:21] info: STK Push response received {"status_code":200,"successful":true}
+[2025-08-16 09:26:56] info: Generating M-Pesa access token
+[2025-08-16 09:26:57] info: M-Pesa access token generated successfully {"expires_in":"3599"}
+[2025-08-16 09:26:57] info: STK Push request initiated {"phone_number":"254115306792","amount":10,"account_reference":"OrderNo123"}
+[2025-08-16 09:26:58] info: STK Push response received {"status_code":404,"successful":false}
+[2025-08-16 09:26:58] error: STK Push request failed {"error_code":"404.001.03","error_message":"Invalid Access Token"}
+[2025-08-16 09:26:58] error: STK Push request exception {"error":"STK Push failed: Invalid Access Token"}
+[2025-08-16 09:26:58] info: STK Push request initiated {"phone_number":"254115306792","amount":5,"account_reference":"QuickPay123"}
+[2025-08-16 09:26:58] info: STK Push response received {"status_code":404,"successful":false}
+[2025-08-16 09:26:58] error: STK Push request failed {"error_code":"404.001.03","error_message":"Invalid Access Token"}
+[2025-08-16 09:26:58] error: STK Push request exception {"error":"STK Push failed: Invalid Access Token"}
+[2025-08-16 09:27:12] info: M-Pesa token loaded from cache {"expires_at":"2025-08-16 10:25:56"}
+[2025-08-16 09:27:12] info: STK Push request initiated {"phone_number":"254115306792","amount":10,"account_reference":"OrderNo123"}
+[2025-08-16 09:27:12] info: STK Push response received {"status_code":404,"successful":false}
+[2025-08-16 09:27:12] error: STK Push request failed {"error_code":"404.001.03","error_message":"Invalid Access Token"}
+[2025-08-16 09:27:12] error: STK Push request exception {"error":"STK Push failed: Invalid Access Token"}
+[2025-08-16 09:27:12] info: STK Push request initiated {"phone_number":"254115306792","amount":5,"account_reference":"QuickPay123"}
+[2025-08-16 09:27:13] info: STK Push response received {"status_code":404,"successful":false}
+[2025-08-16 09:27:13] error: STK Push request failed {"error_code":"404.001.03","error_message":"Invalid Access Token"}
+[2025-08-16 09:27:13] error: STK Push request exception {"error":"STK Push failed: Invalid Access Token"}
+[2025-08-16 09:27:18] info: M-Pesa token loaded from cache {"expires_at":"2025-08-16 10:25:56"}
+[2025-08-16 09:27:18] info: STK Push request initiated {"phone_number":"254115306792","amount":10,"account_reference":"OrderNo123"}
+[2025-08-16 09:27:19] info: STK Push response received {"status_code":404,"successful":false}
+[2025-08-16 09:27:19] error: STK Push request failed {"error_code":"404.001.03","error_message":"Invalid Access Token"}
+[2025-08-16 09:27:19] error: STK Push request exception {"error":"STK Push failed: Invalid Access Token"}
+[2025-08-16 09:27:19] info: STK Push request initiated {"phone_number":"254115306792","amount":5,"account_reference":"QuickPay123"}
+[2025-08-16 09:27:20] info: STK Push response received {"status_code":404,"successful":false}
+[2025-08-16 09:27:20] error: STK Push request failed {"error_code":"404.001.03","error_message":"Invalid Access Token"}
+[2025-08-16 09:27:20] error: STK Push request exception {"error":"STK Push failed: Invalid Access Token"}
+[2025-08-16 09:27:55] info: M-Pesa token loaded from cache {"expires_at":"2025-08-16 10:25:56"}
+[2025-08-16 09:27:55] info: STK Push request initiated {"phone_number":"254115306792","amount":10,"account_reference":"OrderNo123"}
+[2025-08-16 09:27:56] info: STK Push response received {"status_code":404,"successful":false}
+[2025-08-16 09:27:56] error: STK Push request failed {"error_code":"404.001.03","error_message":"Invalid Access Token"}
+[2025-08-16 09:27:56] error: STK Push request exception {"error":"STK Push failed: Invalid Access Token"}
+[2025-08-16 09:27:56] info: STK Push request initiated {"phone_number":"254115306792","amount":5,"account_reference":"QuickPay123"}
+[2025-08-16 09:27:57] info: STK Push response received {"status_code":404,"successful":false}
+[2025-08-16 09:27:57] error: STK Push request failed {"error_code":"404.001.03","error_message":"Invalid Access Token"}
+[2025-08-16 09:27:57] error: STK Push request exception {"error":"STK Push failed: Invalid Access Token"}
+[2025-08-16 09:30:47] info: M-Pesa token loaded from cache {"expires_at":"2025-08-16 10:25:56"}
+[2025-08-16 09:30:47] info: Using cached M-Pesa access token {"expires_in_seconds":3309,"expires_at":"2025-08-16 10:25:56"}
+[2025-08-16 09:30:47] info: STK Push request initiated {"phone_number":"254115306792","amount":10,"account_reference":"OrderNo123"}
+[2025-08-16 09:30:47] info: Using cached M-Pesa access token {"expires_in_seconds":3309,"expires_at":"2025-08-16 10:25:56"}
+[2025-08-16 09:30:48] info: STK Push response received {"status_code":404,"successful":false}
+[2025-08-16 09:30:48] error: STK Push request failed {"error_code":"404.001.03","error_message":"Invalid Access Token"}
+[2025-08-16 09:30:48] error: STK Push request exception {"error":"STK Push failed: Invalid Access Token"}
+[2025-08-16 09:30:48] info: STK Push request initiated {"phone_number":"254115306792","amount":5,"account_reference":"QuickPay123"}
+[2025-08-16 09:30:48] info: Using cached M-Pesa access token {"expires_in_seconds":3308,"expires_at":"2025-08-16 10:25:56"}
+[2025-08-16 09:30:48] info: STK Push response received {"status_code":404,"successful":false}
+[2025-08-16 09:30:48] error: STK Push request failed {"error_code":"404.001.03","error_message":"Invalid Access Token"}
+[2025-08-16 09:30:48] error: STK Push request exception {"error":"STK Push failed: Invalid Access Token"}
+[2025-08-16 09:30:48] info: Using cached M-Pesa access token {"expires_in_seconds":3308,"expires_at":"2025-08-16 10:25:56"}
+[2025-08-16 09:31:23] info: M-Pesa token loaded from cache {"expires_at":"2025-08-16 10:25:56"}
+[2025-08-16 09:31:23] info: Using cached M-Pesa access token {"expires_in_seconds":3273,"expires_at":"2025-08-16 10:25:56"}
+[2025-08-16 09:31:23] info: STK Push request initiated {"phone_number":"254115306792","amount":10,"account_reference":"OrderNo123"}
+[2025-08-16 09:31:23] info: Using cached M-Pesa access token {"expires_in_seconds":3273,"expires_at":"2025-08-16 10:25:56"}
+[2025-08-16 09:31:24] info: STK Push response received {"status_code":404,"successful":false}
+[2025-08-16 09:31:24] error: STK Push request failed {"error_code":"404.001.03","error_message":"Invalid Access Token"}
+[2025-08-16 09:31:24] error: STK Push request exception {"error":"STK Push failed: Invalid Access Token"}
+[2025-08-16 09:31:24] info: Using cached M-Pesa access token {"expires_in_seconds":3272,"expires_at":"2025-08-16 10:25:56"}
+[2025-08-16 09:34:29] info: M-Pesa token loaded from cache {"expires_at":"2025-08-16 10:25:56"}
+[2025-08-16 09:34:29] info: Using cached M-Pesa access token {"expires_in_seconds":3087,"expires_at":"2025-08-16 10:25:56"}
+[2025-08-16 09:34:29] info: STK Push request initiated {"phone_number":"254115306792","amount":10,"account_reference":"OrderNo123"}
+[2025-08-16 09:34:29] info: Using cached M-Pesa access token {"expires_in_seconds":3087,"expires_at":"2025-08-16 10:25:56"}
+[2025-08-16 09:34:30] info: STK Push response received {"status_code":404,"successful":false}
+[2025-08-16 09:34:30] error: STK Push request failed {"error_code":"404.001.03","error_message":"Invalid Access Token"}
+[2025-08-16 09:34:30] error: STK Push request exception {"error":"STK Push failed: Invalid Access Token"}
+[2025-08-16 09:34:30] info: Using cached M-Pesa access token {"expires_in_seconds":3086,"expires_at":"2025-08-16 10:25:56"}
+[2025-08-16 09:35:14] info: M-Pesa token loaded from cache {"expires_at":"2025-08-16 10:25:56"}
+[2025-08-16 09:35:14] info: Using cached M-Pesa access token {"expires_in_seconds":3042,"expires_at":"2025-08-16 10:25:56"}
+[2025-08-16 09:35:14] info: STK Push request initiated {"phone_number":"254115306792","amount":10,"account_reference":"OrderNo123"}
+[2025-08-16 09:35:14] info: Using cached M-Pesa access token {"expires_in_seconds":3042,"expires_at":"2025-08-16 10:25:56"}
+[2025-08-16 09:35:15] info: STK Push response received {"status_code":404,"successful":false}
+[2025-08-16 09:35:15] error: STK Push request failed {"error_code":"404.001.03","error_message":"Invalid Access Token"}
+[2025-08-16 09:35:15] error: STK Push request exception {"error":"STK Push failed: Invalid Access Token"}
+[2025-08-16 09:35:15] info: Using cached M-Pesa access token {"expires_in_seconds":3041,"expires_at":"2025-08-16 10:25:56"}
+[2025-08-16 09:37:31] info: M-Pesa token loaded from cache {"expires_at":"2025-08-16 10:25:56"}
+[2025-08-16 09:37:31] info: Using cached M-Pesa access token {"expires_in_seconds":2905,"expires_at":"2025-08-16 10:25:56","token_length":28}
+[2025-08-16 09:37:31] info: STK Push request initiated {"phone_number":"254115306792","amount":10,"account_reference":"OrderNo123"}
+[2025-08-16 09:37:31] info: Using cached M-Pesa access token {"expires_in_seconds":2905,"expires_at":"2025-08-16 10:25:56","token_length":28}
+[2025-08-16 09:37:32] info: STK Push response received {"status_code":404,"successful":false}
+[2025-08-16 09:37:32] error: STK Push request failed {"error_code":"404.001.03","error_message":"Invalid Access Token"}
+[2025-08-16 09:37:32] error: STK Push request exception {"error":"STK Push failed: Invalid Access Token"}
+[2025-08-16 09:37:32] info: Using cached M-Pesa access token {"expires_in_seconds":2904,"expires_at":"2025-08-16 10:25:56","token_length":28}
+[2025-08-16 09:37:53] info: Cached token expired or invalid, generating new token
+[2025-08-16 09:37:53] info: Generating M-Pesa access token
+[2025-08-16 09:37:54] info: M-Pesa access token generated successfully {"expires_in":"3599"}
+[2025-08-16 09:37:54] info: STK Push request initiated {"phone_number":"254115306792","amount":10,"account_reference":"OrderNo123"}
+[2025-08-16 09:37:54] info: Using cached M-Pesa access token {"expires_in_seconds":3539,"expires_at":"2025-08-16 10:36:53","token_length":28}
+[2025-08-16 09:37:54] info: STK Push response received {"status_code":200,"successful":true}
+[2025-08-16 09:38:24] info: Using cached M-Pesa access token {"expires_in_seconds":3509,"expires_at":"2025-08-16 10:36:53","token_length":28}
+[2025-08-16 09:38:24] info: STK Push response received {"status_code":404,"successful":false}
+[2025-08-16 09:38:24] error: STK Push request failed {"error_code":"404.001.01","error_message":"Resource not found"}
+[2025-08-16 09:38:24] error: STK Push request exception {"error":"STK Push failed: Resource not found"}
+[2025-08-16 09:38:24] info: Using cached M-Pesa access token {"expires_in_seconds":3509,"expires_at":"2025-08-16 10:36:53","token_length":28}

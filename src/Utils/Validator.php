@@ -2,10 +2,10 @@
 
 /**
  * M-Pesa SDK Validation Utility
- * 
+ *
  * Provides validation methods for M-Pesa API parameters including
  * phone numbers, amounts, URLs, and other transaction data.
- * 
+ *
  * @package MpesaSDK\Utils
  * @author Abuti Martin <abutimartin778@gmail.com>
  * @version 1.0.0
@@ -26,26 +26,27 @@ class Validator
     {
         // Remove all non-digit characters
         $cleaned = preg_replace('/[^0-9]/', '', $phoneNumber);
-
         if (empty($cleaned)) {
             throw new ValidationException('Phone number cannot be empty');
         }
+        if (str_starts_with($cleaned, '254'))
+            $cleaned = substr($cleaned, 3);
 
         // Handle different formats
-        if (strlen($cleaned) == 10 && substr($cleaned, 0, 1) == '0') {
+        if (strlen($cleaned) == 10 && str_starts_with($cleaned, '0')) {
             // Convert 0712345678 to 254712345678
             $cleaned = '254' . substr($cleaned, 1);
         } elseif (strlen($cleaned) == 9) {
             // Convert 712345678 to 254712345678
             $cleaned = '254' . $cleaned;
-        } elseif (strlen($cleaned) == 12 && substr($cleaned, 0, 3) == '254') {
+        } elseif (strlen($cleaned) == 12 || strlen($cleaned) == 13) {
             // Already in correct format
         } else {
             throw new ValidationException('Invalid phone number format. Expected formats: 0712345678, 712345678, or 254712345678');
         }
 
         // Validate Kenyan mobile number prefixes
-        $validPrefixes = ['254701', '254702', '254703', '254704', '254705', '254706', '254707', '254708', '254709',
+        $validPrefixes = ['254701', '25411', '254702', '254703', '254704', '254705', '254706', '254707', '254708', '254709',
             '254710', '254711', '254712', '254713', '254714', '254715', '254716', '254717', '254718', '254719',
             '254720', '254721', '254722', '254723', '254724', '254725', '254726', '254727', '254728', '254729',
             '254730', '254731', '254732', '254733', '254734', '254735', '254736', '254737', '254738', '254739',
@@ -56,9 +57,9 @@ class Validator
             '254780', '254781', '254782', '254783', '254784', '254785', '254786', '254787', '254788', '254789',
             '254790', '254791', '254792', '254793', '254794', '254795', '254796', '254797', '254798', '254799'];
 
-        $prefix = substr($cleaned, 0, 6);
+        $prefix = substr($cleaned, 0, 5);
         if (!in_array($prefix, $validPrefixes)) {
-            throw new ValidationException('Invalid Kenyan mobile number prefix');
+            throw new ValidationException("Invalid Kenyan mobile number prefix $prefix");
         }
 
         return $cleaned;

@@ -23,11 +23,11 @@ use MpesaSDK\Exceptions\MpesaException;
 $logger = new Logger(Logger::LEVEL_INFO, 'mpesa.log');
 
 // Initialize SDK with configuration
-$mpesa = MpesaSDK::sandbox([
-    'consumer_key' => 'Ouu0rMh6WAmOlUkoEBb90HoeR7YErbzE',
-    'consumer_secret' => 'xfDlFggwSglAMdoL',
-    'business_short_code' => '174379',
-    'passkey' => 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919'
+$mpesa = MpesaSDK::production([
+    'consumer_key' => '',
+    'consumer_secret' => '',
+    'business_short_code' => '',
+    'passkey' => ''
 ], null, $logger);
 
 // Test connection
@@ -40,7 +40,7 @@ echo "Connected to M-Pesa " . $mpesa->getEnvironment()['environment'] . " enviro
 try {
     // STK Push request
     $response = $mpesa->stkPush()->push(
-        phoneNumber: '254714356761',
+        phoneNumber: '2540115306792',
         amount: 10.00,
         accountReference: 'OrderNo123',
         transactionDescription: 'Payment',
@@ -79,25 +79,25 @@ try {
 }
 
 // Quick payment example using helper method
-echo "\n--- Quick Payment Example ---\n";
-
-try {
-    $response = $mpesa->requestPayment(
-        phoneNumber: '254712345678',
-        amount: 5.00,
-        callbackUrl: 'https://yourapp.com/callback/stkpush',
-        accountReference: 'QuickPay123',
-        description: 'Quick Payment'
-    );
-
-    if ($response->isSuccessful()) {
-        echo "Quick payment initiated!\n";
-        echo "Checkout Request ID: " . $response->get('CheckoutRequestID') . "\n";
-    }
-
-} catch (Exception $e) {
-    echo "Quick payment failed: " . $e->getMessage() . "\n";
-}
+//echo "\n--- Quick Payment Example ---\n";
+//
+//try {
+//    $response = $mpesa->requestPayment(
+//        phoneNumber: '254115306792',
+//        amount: 5.00,
+//        callbackUrl: 'https://yourapp.com/callback/stkpush',
+//        accountReference: 'QuickPay123',
+//        description: 'Quick Payment'
+//    );
+//
+//    if ($response->isSuccessful()) {
+//        echo "Quick payment initiated!\n";
+//        echo "Checkout Request ID: " . $response->get('CheckoutRequestID') . "\n";
+//    }
+//
+//} catch (Exception $e) {
+//    echo "Quick payment failed: " . $e->getMessage() . "\n";
+//}
 
 // Display token info
 echo "\n--- Token Info ---\n";

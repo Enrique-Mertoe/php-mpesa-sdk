@@ -47,7 +47,18 @@ class TokenManager
     public function getAccessToken(): string
     {
         if ($this->isTokenValid()) {
+            if ($this->logger) {
+                $this->logger->info('Using cached M-Pesa access token', [
+                    'expires_in_seconds' => $this->getRemainingLifetime(),
+                    'expires_at' => date('Y-m-d H:i:s', $this->cacheExpiry),
+                    'token_length' => strlen($this->tokenCache)
+                ]);
+            }
             return $this->tokenCache;
+        }
+
+        if ($this->logger) {
+            $this->logger->info('Cached token expired or invalid, generating new token');
         }
 
         return $this->generateAccessToken();
@@ -135,10 +146,28 @@ class TokenManager
      */
     public function clearCache(): void
     {
+        if ($this->logger) {
+            $this->logger->info('Clearing M-Pesa access token cache');
+        }
+        
         $this->tokenCache = null;
         $this->cacheExpiry = 0;
         $this->fileCache->delete($this->cacheKey);
     }
+
+    /**
+     * Force refresh token (clear cache and generate new)
+     */
+    public function refreshToken(): string
+    {
+        if ($this->logger) {
+            $this->logger->info('Force refreshing M-Pesa access token');
+        }
+        
+        $this->clearCache();
+        return $this->generateAccessToken();
+    }
+
 
     /**
      * Load token from file cache
